@@ -2,7 +2,7 @@ import React from "react";
 
 const Logo = () => {
   return (
-    <svg viewBox="0 0 430 437" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg viewBox="0 0 430 437" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink">
       <g id="logo" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g transform="translate(-43.000000, -34.000000)" fill="#000000" fillRule="nonzero">
           <path

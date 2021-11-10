@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Fade from "@stahl.luke/react-reveal/Fade";
-import { Container } from "../../commons/container";
+import Container from "../../commons/container";
 import { BackgroundColorAndContainer, WithContainer, BackgroundColorAndFullWidth, FullWidth } from "./styles";
 
 /** ***************************************************************************

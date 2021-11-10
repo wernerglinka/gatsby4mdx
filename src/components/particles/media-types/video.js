@@ -10,7 +10,6 @@ const VideoMedia = ({ video, modalState, setModalState }) => {
   function showVideo(source, videoID) {
     setModalState({ ...modalState, source, videoID, showModal: true });
   }
-  console.log("VIDEO");
   return (
     <>
       <MediaWrapper className="image">

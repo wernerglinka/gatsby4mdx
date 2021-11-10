@@ -1,0 +1,22 @@
+{
+  "menu": [
+    {
+      "label": "Other Page",
+      "url": "/other-page",
+      "submenuID": "",
+      "submenuClass": "",
+      "isButton": false,
+      "buttonClass": "",
+      "isExternal": false
+    },
+    {
+      "label": "So Important",
+      "url": "https://apple.com",
+      "submenuID": "",
+      "submenuClass": "",
+      "isButton": true,
+      "buttonClass": "primary",
+      "isExternal": true
+    }
+  ]
+}

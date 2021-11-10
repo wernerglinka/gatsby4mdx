@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import theme from "../styles/theme";
 import Head from "../components/head";
+import Header from "../components/header";
 import useSiteMetadata from "../hooks/useSiteMetadata";
 
 // apply global css
@@ -47,6 +48,8 @@ const DefaultLayout = ({ children, location }) => {
   return (
     <ThemeProvider theme={theme}>
       <Head metaData={metaData} location={location} />
+
+      <Header location={location} />
 
       <AnimatePresence>
         <motion.main key={location.pathname} variants={variants} initial="initial" animate="enter" exit="exit">

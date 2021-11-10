@@ -5,7 +5,6 @@ export const MediaWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 30px 0 0;
 
   button {
     border: none;

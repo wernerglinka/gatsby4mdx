@@ -4,6 +4,12 @@
 // <ThemeProvider theme={theme}>
 
 const Theme = {
+  header: {
+    height: "90px",
+    padding: "20px 0",
+    hamburger: "40px",
+    hamburgerMarginTop: "5px",
+  },
   section: {
     clearanceTop: "50px",
     clearanceBottom: "50px",
