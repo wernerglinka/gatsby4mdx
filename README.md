@@ -8,7 +8,7 @@ This starter implements a lot of the patterns that I have observed and implement
 
 The site has the following features:
 
-- Uses [Gatsby 4](https://www.gatsbyjs.com/) 4 as a Static Site Generator. 
+- Uses [Gatsby 4](https://www.gatsbyjs.com/) as a Static Site Generator. 
 - Default page template uses a sectioned layout. Inspiration came from the MAN, Stackbit's [Simon Hanukaev](https://www.linkedin.com/in/smnh/) 
 - Page transitions are implemented with [Framer Motion](https://www.framer.com/motion/). Inspiration came from [Ryan Wiemer's Github repo](https://github.com/ryanwiemer/gatsby-using-page-transitions)
 - Section animations are implemented with [React Reveal](https://www.react-reveal.com/)

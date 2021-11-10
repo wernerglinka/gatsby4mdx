@@ -59,5 +59,14 @@ module.exports = {
         name: "pages",
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Website`,
+        short_name: `Website`,
+        start_url: `/`,
+        icon: `static/favicon.png`,
+      },
+    },
   ],
 };
