@@ -14,6 +14,7 @@ export const HeaderWrapper = styled.div`
     width: 100%;
     height: ${props => props.theme.header.height};
     padding: ${props => props.theme.header.padding};
+    background-color: rgba(255, 255, 255, 0.95);
   }
 `;
 
@@ -65,6 +66,16 @@ export const Menu = styled(motion.nav)`
   bottom: 0;
   padding: 20% 10% 10%;
 
-  font-size: 36px;
-  color: #ccc;
+  ul {
+    list-style: none;
+
+    li {
+      padding-bottom: 0.5em;
+    }
+
+    a {
+      display: block;
+      font-size: 24px;
+    }
+  }
 `;

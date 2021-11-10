@@ -66,7 +66,7 @@ const Header = ({ location }) => {
           <AnimatePresence>
             {menuActive && (
               <Menu variants={variants} initial="initial" animate="enter" exit="exit">
-                <MenuContent />
+                <MenuContent closeMenu={closeMenu} />
               </Menu>
             )}
           </AnimatePresence>

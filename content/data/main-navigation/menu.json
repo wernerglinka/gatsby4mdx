@@ -1,7 +1,9 @@
 {
   "menu": [
     {
+      "icon": "",
       "label": "Other Page",
+      "description": "Maecenas sed diam eget risus varius blandit sit amet non magna",
       "url": "/other-page",
       "submenuID": "",
       "submenuClass": "",
@@ -10,7 +12,9 @@
       "isExternal": false
     },
     {
+      "icon": "",
       "label": "So Important",
+      "description": "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor",
       "url": "https://apple.com",
       "submenuID": "",
       "submenuClass": "",

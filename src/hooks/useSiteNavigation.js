@@ -6,7 +6,9 @@ const useSiteNavigation = () => {
       file(relativePath: { eq: "main-navigation/menu.json" }) {
         childrenMainNavigationJson {
           menu {
+            icon
             label
+            description
             url
             submenuID
             submenuClass
