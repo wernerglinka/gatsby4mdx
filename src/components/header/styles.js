@@ -74,8 +74,15 @@ export const Menu = styled(motion.nav)`
     }
 
     a {
+      text-decoration: none;
       display: block;
-      font-size: 24px;
+      font-size: 28px;
+      color: #ccc;
+      font-weight: bold;
+
+      &:hover {
+        color: #fff;
+      }
     }
   }
 `;

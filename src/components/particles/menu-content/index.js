@@ -15,7 +15,7 @@ const MenuContent = ({ closeMenu }) => {
             {navItem.icon && <span>ICON</span>}
             <div>
               {navItem.isExternal ? (
-                <a href={navItem.url} target="_blank" rel="noopener noreferrer">
+                <a href={navItem.url} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
                   {navItem.label}
                 </a>
               ) : (
