@@ -1,0 +1,133 @@
+---
+template: default/index
+draft: false
+pageMetadata:
+  title: The meta title
+  description: The meta description
+  image: ""
+  canonicalURL: ""
+sections:
+  - template: page-section-banner
+    component: SectionBanner
+    disabled: false
+    animateSection: false
+    inContainer: true
+    marginTop: false
+    marginBottom: true
+    paddingTop: false
+    paddingBottom: false
+    backgroundColor: ""
+    targetID: ""
+    title: Banner Title
+    subTitle: Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    hasCtas: true
+    ctas:
+      - url: "/other-page"
+        label: Other Page
+        isExternal: false
+        isButton: true
+        buttonStyle: "primary"
+      - url: ""
+        label: "Play Video"
+        isExternal: false
+        isButton: false
+        buttonStyle: "primary"
+        isVideoTrigger: true
+    mediaType: Video
+    video:
+      src: youtube
+      id: "IadsLclBOS8"
+      tn: "/assets/images/trees-water.jpg"
+    image:
+      src: "/assets/images/trees.jpg"
+      alt: "a tree"
+    lottieData:
+      src: "Example3"
+      control:
+        autoplay: true
+        loop: true
+    icon: "ConserveEnergy"
+    audio:
+      bgImage: "/assets/images/trees-fog.jpg"
+      ogg: "/assets/audio/sample-ogg-file.ogg"
+      mpeg: "/assets/audio/sample-mp3-file.mp3"
+
+  - template: page-section-intro
+    component: SectionIntro
+    disabled: false
+    animateSection: false
+    inContainer: true
+    marginTop: false
+    marginBottom: true
+    paddingTop: false
+    paddingBottom: true
+    backgroundColor: ""
+    targetID: ""
+    title: Intro Title
+    subTitle: Intro sub title
+    prose: |-
+      Nullam quis risus **eget urna mollis ornare** vel eu leo. Sed posuere [consectetur](https://apple.com) est at lobortis. _Nullam id dolor_ id nibh ultricies vehicula ut id elit. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum. [Link to next page](/other-page)
+
+    hasCtas: true
+    ctas:
+      - url: "/product/"
+        label: Go There
+        isExternal: false
+        isButton: true
+        buttonStyle: "primary"
+
+  - template: page-section-media
+    component: SectionMedia
+    animateSection: true
+    inContainer: false
+    hasBackground: false
+    bgColor: ""
+    bgIsDark: false
+    marginTop: true
+    marginBottom: true
+    paddingTop: false
+    paddingBottom: false
+    direction: reverse
+    title: "this is a media component !"
+    mediaContent:
+      title: "What is a media component ?"
+      text: |-
+        The Media Object pattern is: image thingy on the left, heading and text on the right.
+
+        That’s what [Nicole Sullivan](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) called it and the [name stuck](https://getbootstrap.com/docs/4.0/layout/media-object/). It’s a pretty simple pattern, but like all things web design, it can be done many ways.
+
+        In this implementation the image thingy can be
+
+        - an image
+        - a video
+        - an animated Lottie svg
+        - an icon
+        - an audio player
+
+    hasCtas: false
+    ctas:
+      - label: ""
+        url: ""
+        isVideoTrigger: false
+        isButton: false
+        buttonStyle: ""
+        isExternal: false
+    mediaType: Image
+    video:
+      src: youtube
+      id: "IadsLclBOS8"
+      tn: "/assets/images/trees.jpg"
+    image:
+      src: "/assets/images/trees.jpg"
+      alt: "a tree"
+    lottieData:
+      src: "Example3"
+      control:
+        autoplay: true
+        loop: true
+    icon: "ConserveEnergy"
+    audio:
+      bgImage: "/assets/images/trees-fog.jpg"
+      ogg: "/assets/audio/sample-ogg-file.ogg"
+      mpeg: "/assets/audio/sample-mp3-file.mp3"
+---
