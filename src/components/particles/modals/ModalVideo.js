@@ -1,5 +1,5 @@
 /* global window, document, YT */
-import React, { Fragment } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import { FiX } from "react-icons/Fi";

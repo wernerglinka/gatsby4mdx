@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import useSiteMetadata from "../../../hooks/useSiteMetadata";
 import VideoModal from "../modals/ModalVideo";
 import { MediaWrapper, PlayButton } from "./styles";
 
@@ -7,6 +8,9 @@ import { MediaWrapper, PlayButton } from "./styles";
  * Media section with a video, which will be played in a modal box
  ******************************************************************************** */
 const VideoMedia = ({ video, modalState, setModalState }) => {
+  const siteMetaData = useSiteMetadata();
+  const thisThumbnail = `${siteMetaData.imagePrefix}${video.tn}`;
+
   function showVideo(source, videoID) {
     setModalState({ ...modalState, source, videoID, showModal: true });
   }
@@ -15,7 +19,7 @@ const VideoMedia = ({ video, modalState, setModalState }) => {
       <MediaWrapper className="image">
         <button type="button" onClick={() => showVideo(video.src, video.id)}>
           <PlayButton />
-          <img src={video.tn} alt="" />
+          <img src={thisThumbnail} alt="" />
         </button>
       </MediaWrapper>
       {modalState.showModal && (

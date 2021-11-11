@@ -51,7 +51,7 @@ export const MenuBackground = styled.div`
   transition: all 1s ease-in-out;
   width: 200%;
   height: 200%;
-  background-color: rgba(100, 100, 100, 0.95);
+  background-color: rgba(50, 50, 100, 0.95);
 
   &.isActive {
     transform: rotate(0deg);
