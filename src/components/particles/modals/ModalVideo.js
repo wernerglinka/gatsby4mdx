@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
-import { FiX } from "react-icons/Fi";
+import { FiX } from "react-icons/fi";
 
 import CloudinaryVideo from "./ModalCloudinaryVideo";
 import YouTubeVideo from "./ModalYouTubeVideo";
