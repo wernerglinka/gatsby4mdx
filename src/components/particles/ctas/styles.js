@@ -34,7 +34,7 @@ export const VideoButton = styled.a`
 
 export const VideoLink = styled.a`
   display: inline-block;
-  padding: 12px 20px;
+  padding: 12px 20px 12px 0;
   font-size: 14px;
   font-weight: 500;
   color: #333;

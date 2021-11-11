@@ -5,27 +5,25 @@ import { Link } from "gatsby";
 // styles for external and internal inline links are identials but
 // external is applied to <a> and internal to <Link> element
 const linkStyles = css`
-  font-size: 0.875rem;
-  white-space: nowrap;
-  text-decoration: none;
-  color: #ce0e2a;
+  display: inline-block;
+  padding: 12px 20px 12px 0;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  cursor: pointer;
 
   &:after {
-    content: url(/icons/link-arrow.svg);
-    display: inline-block;
-    width: 50px;
+    content: ">>>";
     padding-left: 10px;
+    letter-spacing: 0.1em;
     transition: all 0.3s ease-in-out;
   }
 
   &:hover:after {
-    padding-left: 20px;
-  }
-
-  @media (max-width: 400px) {
-    white-space: normal;
+    letter-spacing: 1em;
   }
 `;
 
