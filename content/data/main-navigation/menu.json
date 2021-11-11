@@ -1,7 +1,7 @@
 {
   "menu": [
     {
-      "icon": "",
+      "icon": "Feather",
       "label": "Other Page",
       "description": "Maecenas sed diam eget risus varius blandit sit amet non magna",
       "url": "/other-page",
@@ -12,7 +12,7 @@
       "isExternal": false
     },
     {
-      "icon": "",
+      "icon": "Database",
       "label": "So Important",
       "description": "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor",
       "url": "https://apple.com",

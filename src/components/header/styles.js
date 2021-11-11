@@ -70,7 +70,16 @@ export const Menu = styled(motion.nav)`
     list-style: none;
 
     li {
+      display: flex;
+      justify-content: flex-start;
       padding-bottom: 0.5em;
+
+      svg {
+        margin: 13px 15px 0 0;
+        stroke: #ccc;
+        width: 24px;
+        height: 24px;
+      }
     }
 
     a {
@@ -83,6 +92,11 @@ export const Menu = styled(motion.nav)`
       &:hover {
         color: #fff;
       }
+    }
+
+    p {
+      color: #ddd;
+      margin-top: 0;
     }
   }
 `;

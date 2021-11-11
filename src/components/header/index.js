@@ -53,6 +53,7 @@ const Header = ({ location }) => {
       <header>
         <Inner>
           <MenuBackground className={menuActive ? "isActive" : null} />
+
           <Brand>
             {isHome ? (
               <Logo />
