@@ -15,7 +15,7 @@ export const ContentWrapper = styled.div`
   justify-content: center;
   flex-direction: ${props => (props.reverse ? "row-reverse" : "row")};
 
-  @media (max-width: ${props => props.theme.tabletBreakpoint}) {
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     flex-direction: column-reverse;
   }
 
@@ -31,7 +31,7 @@ export const ContentWrapper = styled.div`
   .prose {
     padding: ${props => (props.reverse ? "0 0 0 50px" : "0 50px 0 0")};
 
-    @media (max-width: ${props => props.theme.tabletBreakpoint}) {
+    @media (max-width: ${props => props.theme.breakpoints.tablet}) {
       padding: 20px 0;
     }
 
@@ -51,7 +51,7 @@ export const ContentWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    @media (max-width: ${props => props.theme.tabletBreakpoint}) {
+    @media (max-width: ${props => props.theme.breakpoints.tablet}) {
       padding: 20px 0;
     }
 

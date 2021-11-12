@@ -18,6 +18,9 @@ const Theme = {
   content: {
     maxWidth: "1440px",
   },
+  breakpoints: {
+    tablet: "767px",
+  },
 };
 
 export default Theme;

@@ -5,7 +5,7 @@ export const CTAWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  @media (max-width: 1030px) {
+  @media (max-width: 500px) {
     flex-direction: column;
     align-items: flex-start;
   }

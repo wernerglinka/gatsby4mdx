@@ -7,7 +7,7 @@ export const BannerContent = styled.div`
   justify-content: center;
   padding: 50px 0;
 
-  @media (max-width: ${props => props.theme.tabletBreakpoint}) {
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     flex-direction: column-reverse;
   }
 
@@ -16,11 +16,17 @@ export const BannerContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    button {
+      display: block;
+      width: 100%;
+    }
   }
 
   h1 {
     margin-bottom: 30px;
   }
+
   p {
     margin: 0 0 30px;
   }

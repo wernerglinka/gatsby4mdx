@@ -34,6 +34,7 @@ export const PlayButton = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 1;
   margin: -30px 0 0 -30px;
   width: 60px;
   height: 60px;
