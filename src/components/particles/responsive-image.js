@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import useSiteMetadata from "../../hooks/useSiteMetadata";
 import useWindowResize from "../../hooks/useWindowResize";
+import useInView from "../../hooks/useInView";
 
 const ResponsiveWrapper = styled.div`
   position: relative;
@@ -30,18 +31,25 @@ const ResponsiveWrapper = styled.div`
  * The image is requested from Clouydinary, with url parameters specifying the exact
  * image size and pixel density.
  *
+ * TODO: Add progressive image loaded and
+ * sources:
+ * - https://www.sitepoint.com/how-to-build-your-own-progressive-image-loader/
+ * - https://codeburst.io/how-to-do-simple-progressive-image-loading-in-react-like-medium-dfad4c181b53
+ * - https://medium.com/@perjansson/a-progressive-image-loader-in-react-f14ae652619d
  ******************************************************************************** */
 const ResponsiveImage = ({ src, alt, aspectRatio }) => {
   const siteMetaData = useSiteMetadata();
+  const wrapperRef = useRef();
+  const imgRef = useRef();
+
   // monitor window size
   const size = useWindowResize();
+  // monitor if component is in viewport
+  const isVisible = useInView(wrapperRef);
 
   const wrapperStyles = {
     paddingBottom: `${aspectRatio}%`,
   };
-
-  const wrapperRef = useRef();
-  const imgRef = useRef();
 
   const getImageSrc = () => {
     const { clientWidth, clientHeight } = wrapperRef.current;
@@ -58,6 +66,12 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
   useEffect(() => {
     getImageSrc();
   }, [size]);
+
+  useEffect(() => {
+    if (isVisible) {
+      console.log(src);
+    }
+  }, [isVisible]);
 
   return (
     <ResponsiveWrapper ref={wrapperRef} style={wrapperStyles}>

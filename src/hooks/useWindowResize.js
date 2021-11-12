@@ -12,7 +12,7 @@ function debounce(fn, ms) {
   };
 }
 
-// source:  https://usehooks.com/useWindowSize/
+// inspiration:  https://usehooks.com/useWindowSize/
 
 function useWindowResize() {
   // Initialize state with undefined width/height so server and client renders match
