@@ -18,15 +18,6 @@ const ResponsiveWrapper = styled.div`
     top: 0;
     left: 0;
   }
-
-  .high-res {
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-
-    &.done {
-      opacity: 1;
-    }
-  }
 `;
 
 /** *******************************************************************************
@@ -73,30 +64,23 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
     imgRef.current.src = `${siteMetaData.imagePrefix}${imageParams}/${src}`;
   };
 
-  const lowResIMagesrc = `${siteMetaData.imagePrefix}w_40,c_fill,g_auto,f_auto/${src}`;
-
-  const imgFadeIn = () => {
-    imgRef.current.classList.add("done");
-  };
-
   useEffect(() => {
-    // getImageSrc();
+    getImageSrc();
   }, []);
 
   useEffect(() => {
-    // getImageSrc();
+    getImageSrc();
   }, [size]);
 
   useEffect(() => {
     if (isVisible) {
-      getImageSrc();
+      console.log(src);
     }
   }, [isVisible]);
 
   return (
     <ResponsiveWrapper ref={wrapperRef} style={wrapperStyles}>
-      <img src={lowResIMagesrc} alt={alt} className="low-res" />
-      <img src="" alt={alt} ref={imgRef} className="high-res" onLoad={imgFadeIn} />
+      <img src="" alt={alt} ref={imgRef} />
     </ResponsiveWrapper>
   );
 };
