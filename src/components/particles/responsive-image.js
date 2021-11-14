@@ -19,6 +19,10 @@ const ResponsiveWrapper = styled.div`
     left: 0;
   }
 
+  .low-res {
+    filter: blur(10px);
+  }
+
   .high-res {
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
@@ -30,26 +34,24 @@ const ResponsiveWrapper = styled.div`
 `;
 
 /** *******************************************************************************
- * Responsiv image particle
- * Based on Glen Maddern's screencast: https://www.youtube.com/watch?v=_lQvw2vSDbs
+ * Progressive/responsive image particle with lazy load
+ * Implements a Low Res Image Placeholder (LRIP)
  *
- * This component particle will wrap every image in a div that has the same aspect
- * ratio of the image that will be place in it on render, thus preventing content
- * realignment when the correctly sized image is inserted into the DOM.
+ * With inspiration from Glen Maddern's screencast: https://www.youtube.com/watch?v=_lQvw2vSDbs
+ * and Medium
  *
- * The image is requested from Clouydinary, with url parameters specifying the exact
- * image size and pixel density.
+ * This component particle will wrap the image in a div that has the same aspect
+ * ratio as the image. This prevents content realignment on slow connections.
  *
- * TODO: Add progressive image loaded and
- * sources:
- * - https://www.sitepoint.com/how-to-build-your-own-progressive-image-loader/
- * - https://codeburst.io/how-to-do-simple-progressive-image-loading-in-react-like-medium-dfad4c181b53
- * - https://medium.com/@perjansson/a-progressive-image-loader-in-react-f14ae652619d
+ * The images are loaded from Clouydinary, the placeholder with a very low resolution and the
+ * final image with url parameters specifying the exact image size and pixel density.
  *
  * Approach:
- * - load a very low resolution instance of the image into the container and apply width 100%
- * - now measure clientWidth and Height of the container and prepare the image url parameters
- * - when the image is in viewport, load the exact sized image
+ * - load very low resolution image into container with width 100%.
+ * - measure container clientWidth and Height for image url parameters.
+ * - when the image is in viewport, load the exactly sized final image
+ * - on resize just replace the final image. Do this to prevent image artifacts when
+ *   resizing from narrow to wider screen.
  ******************************************************************************** */
 const ResponsiveImage = ({ src, alt, aspectRatio }) => {
   const siteMetaData = useSiteMetadata();
@@ -61,10 +63,12 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
   // monitor if component is in viewport
   const isVisible = useInView(wrapperRef);
 
+  // prevent content reflow when images is loaded
   const wrapperStyles = {
     paddingBottom: `${aspectRatio}%`,
   };
 
+  // get exact image size
   const getImageSrc = () => {
     const { clientWidth, clientHeight } = wrapperRef.current;
     const pixelRatio = window.devicePixelRatio || 1.0;
@@ -73,20 +77,20 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
     imgRef.current.src = `${siteMetaData.imagePrefix}${imageParams}/${src}`;
   };
 
+  // get image source for LRIP
   const lowResIMagesrc = `${siteMetaData.imagePrefix}w_40,c_fill,g_auto,f_auto/${src}`;
 
+  // add class to high res image when image has been loaded
   const imgFadeIn = () => {
     imgRef.current.classList.add("done");
   };
 
+  // update image after resize
   useEffect(() => {
-    // getImageSrc();
-  }, []);
-
-  useEffect(() => {
-    // getImageSrc();
+    getImageSrc();
   }, [size]);
 
+  // load high res image when in viewport
   useEffect(() => {
     if (isVisible) {
       getImageSrc();
