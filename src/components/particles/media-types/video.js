@@ -17,7 +17,7 @@ const VideoMedia = ({ video, modalState, setModalState }) => {
       <MediaWrapper className="image">
         <button type="button" onClick={() => showVideo(video.src, video.id)}>
           <PlayButton />
-          <ResponsiveImage src={video.tn} aspectRatio={video.aspectRatio} />
+          <ResponsiveImage src={video.tn} />
         </button>
       </MediaWrapper>
       {modalState.showModal && (

@@ -9,21 +9,23 @@ import useInView from "../../hooks/useInView";
 const ResponsiveWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 0;
+  height: auto;
   // padding-bottom will be set during render based on image
   overflow: hidden;
 
   img {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: block;
   }
 
   .low-res {
     filter: blur(10px);
+    clip-path: inset(1px); // cut off the blur overflow
   }
 
   .high-res {
+    position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
 
@@ -53,7 +55,7 @@ const ResponsiveWrapper = styled.div`
  * - on resize just replace the final image. Do this to prevent image artifacts when
  *   resizing from narrow to wider screen.
  ******************************************************************************** */
-const ResponsiveImage = ({ src, alt, aspectRatio }) => {
+const ResponsiveImage = ({ src, alt }) => {
   const siteMetaData = useSiteMetadata();
   const wrapperRef = useRef();
   const imgRef = useRef();
@@ -62,11 +64,6 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
   const size = useWindowResize();
   // monitor if component is in viewport
   const isVisible = useInView(wrapperRef);
-
-  // prevent content reflow when images is loaded
-  const wrapperStyles = {
-    paddingBottom: `${aspectRatio}%`,
-  };
 
   // get exact image size
   const getImageSrc = () => {
@@ -98,7 +95,7 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
   }, [isVisible]);
 
   return (
-    <ResponsiveWrapper ref={wrapperRef} style={wrapperStyles}>
+    <ResponsiveWrapper ref={wrapperRef}>
       <img src={lowResIMagesrc} alt={alt} className="low-res" />
       <img src="" alt={alt} ref={imgRef} className="high-res" onLoad={imgFadeIn} />
     </ResponsiveWrapper>
@@ -108,7 +105,6 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
 ResponsiveImage.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string,
-  aspectRatio: PropTypes.string.isRequired,
 };
 
 ResponsiveImage.defaultProps = {
