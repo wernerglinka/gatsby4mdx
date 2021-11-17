@@ -9,7 +9,7 @@ import useInView from "../../hooks/useInView";
 const ResponsiveWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: auto;
+  height: 0;
   // padding-bottom will be set during render based on image
   overflow: hidden;
 
@@ -19,18 +19,28 @@ const ResponsiveWrapper = styled.div`
 
   .low-res {
     filter: blur(10px);
-    clip-path: inset(1px); // cut off the blur overflow
+    transition: opacity 0.4s ease-in-out;
   }
 
   .high-res {
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
+    bottom: 0;
     transition: opacity 0.4s ease-in-out;
+  }
 
-    &.done {
+  // the hi-res image may have a sligly different height. That may be due to the low-res
+  // image size being restricked to fewer steps when generating the image. To avoid the
+  // low-res showing under the high-res image, the low-res will be faded out as the high
+  // res is faded in
+  &.done {
+    .high-res {
       opacity: 1;
+    }
+    .low-res {
+      opacity: 0;
     }
   }
 `;
@@ -55,15 +65,22 @@ const ResponsiveWrapper = styled.div`
  * - on resize just replace the final image. Do this to prevent image artifacts when
  *   resizing from narrow to wider screen.
  ******************************************************************************** */
-const ResponsiveImage = ({ src, alt }) => {
+const ResponsiveImage = ({ src, alt, aspectRatio }) => {
   const siteMetaData = useSiteMetadata();
   const wrapperRef = useRef();
   const imgRef = useRef();
+
+  console.log(aspectRatio);
 
   // monitor window size
   const size = useWindowResize();
   // monitor if component is in viewport
   const isVisible = useInView(wrapperRef);
+
+  // prevent content reflow when images is loaded
+  const wrapperStyles = {
+    paddingBottom: `${aspectRatio}%`,
+  };
 
   // get exact image size
   const getImageSrc = () => {
@@ -75,11 +92,11 @@ const ResponsiveImage = ({ src, alt }) => {
   };
 
   // get image source for LRIP
-  const lowResIMagesrc = `${siteMetaData.imagePrefix}w_40,c_fill,g_auto,f_auto/${src}`;
+  const lowResIMagesrc = `${siteMetaData.imagePrefix}w_100,c_fill,g_auto,f_auto/${src}`;
 
   // add class to high res image when image has been loaded
   const imgFadeIn = () => {
-    imgRef.current.classList.add("done");
+    wrapperRef.current.classList.add("done");
   };
 
   // update image after resize
@@ -95,7 +112,7 @@ const ResponsiveImage = ({ src, alt }) => {
   }, [isVisible]);
 
   return (
-    <ResponsiveWrapper ref={wrapperRef}>
+    <ResponsiveWrapper ref={wrapperRef} style={wrapperStyles}>
       <img src={lowResIMagesrc} alt={alt} className="low-res" />
       <img src="" alt={alt} ref={imgRef} className="high-res" onLoad={imgFadeIn} />
     </ResponsiveWrapper>
@@ -105,6 +122,7 @@ const ResponsiveImage = ({ src, alt }) => {
 ResponsiveImage.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string,
+  aspectRatio: PropTypes.string.isRequired,
 };
 
 ResponsiveImage.defaultProps = {
