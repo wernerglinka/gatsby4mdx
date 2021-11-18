@@ -99,16 +99,14 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
     wrapperRef.current.classList.add("done");
   };
 
-  // update image after resize
+  // update image after resize if in viewport
   useEffect(() => {
-    getImageSrc();
+    isVisible && getImageSrc();
   }, [size]);
 
   // load high res image when in viewport
   useEffect(() => {
-    if (isVisible) {
-      getImageSrc();
-    }
+    isVisible && getImageSrc();
   }, [isVisible]);
 
   return (
