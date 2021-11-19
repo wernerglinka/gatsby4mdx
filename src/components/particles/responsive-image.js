@@ -1,5 +1,5 @@
 /* global window */
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import useSiteMetadata from "../../hooks/useSiteMetadata";
@@ -66,6 +66,7 @@ const ResponsiveWrapper = styled.div`
  *   resizing from narrow to wider screen.
  ******************************************************************************** */
 const ResponsiveImage = ({ src, alt, aspectRatio }) => {
+  const [dim, setDim] = useState({ x: 0, y: 0 });
   const siteMetaData = useSiteMetadata();
   const wrapperRef = useRef();
   const imgRef = useRef();
@@ -82,7 +83,21 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
     paddingBottom: `${aspectRatio}%`,
   };
 
-  // get exact image size
+  /**
+   * get exact image size
+   * Note imageParams include "c_fill,g_auto". This is appropriate for pictures only. Whe showing
+   * images of graphs, they may need to be removed
+   *
+   * c_fill
+   * Creates an asset with the exact specified width and height without distorting the asset. This
+   * option first scales as much as needed to at least fill both of the specified dimensions. If the
+   * requested aspect ratio is different than the original, cropping will occur on the dimension
+   * that exceeds the requested size after scaling.
+   *
+   * g_auto
+   * Automatically identifies the most interesting regions in the asset to be included in the crop.
+   */
+
   const getImageSrc = () => {
     const { clientWidth, clientHeight } = wrapperRef.current;
     const pixelRatio = window.devicePixelRatio || 1.0;
@@ -99,8 +114,12 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
     wrapperRef.current.classList.add("done");
   };
 
-  // update image after resize if in viewport
+  // update image after resize
   useEffect(() => {
+    // set explicit width and height of image
+    const { clientWidth, clientHeight } = wrapperRef.current;
+    setDim({ x: clientWidth, y: clientHeight });
+    // and get img source if image is in viewport
     isVisible && getImageSrc();
   }, [size]);
 
@@ -111,8 +130,8 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
 
   return (
     <ResponsiveWrapper ref={wrapperRef} style={wrapperStyles}>
-      <img src={lowResIMagesrc} alt={alt} className="low-res" />
-      <img src="" alt={alt} ref={imgRef} className="high-res" onLoad={imgFadeIn} />
+      <img src={lowResIMagesrc} alt={alt} className="low-res" width={dim.x} height={dim.y} />
+      <img src="" alt={alt} ref={imgRef} className="high-res" onLoad={imgFadeIn} width={dim.x} height={dim.y} />
     </ResponsiveWrapper>
   );
 };
