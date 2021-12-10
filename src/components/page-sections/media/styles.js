@@ -5,7 +5,6 @@ export const MediaWrapper = styled.section`
   padding-bottom: ${props => (props.paddingBottom ? "40px" : "0")};
 
   h2 {
-    text-align: center;
     margin-bottom: 1em;
   }
 `;

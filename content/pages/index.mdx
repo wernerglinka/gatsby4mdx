@@ -18,8 +18,8 @@ sections:
     paddingBottom: false
     backgroundColor: ""
     targetID: ""
-    title: Banner Title
-    subTitle: Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    title: Gatsby4 Sandbox
+    subTitle: My personal sandbox site to experiement with static Gatsby4 sites.
     hasCtas: true
     ctas:
       - url: "/other-page/"
@@ -36,7 +36,7 @@ sections:
     mediaType: Video
     video:
       src: youtube
-      id: "IadsLclBOS8"
+      id: "6Eglvixg4eg"
       tn: "v1636656059/gatsby4mdx/one-tree_nnl9ts.jpg"
       aspectRatio: "56.25"
     image:
@@ -66,10 +66,10 @@ sections:
     paddingBottom: true
     backgroundColor: ""
     targetID: ""
-    title: Intro Title
-    subTitle: Intro sub title
+    title: Why Gatsby4?
+    subTitle: Because everybody wants it!
     prose: |-
-      Nullam quis risus **eget urna mollis ornare** vel eu leo. Sed posuere [consectetur](https://apple.com) est at lobortis. _Nullam id dolor_ id nibh ultricies vehicula ut id elit. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum. [Link to next page](/other-page)
+      I returned to buidling static websites around 2017. At that time I choose Metalsmith for its simplicity. But then reality caught up with me. Clients want Gatsby. I have build several Gatsby2 sites for technology companies, but Gatsby4 just came fresh out of the oven and I'll be using this site to experiment and try out new things.
 
     hasCtas: true
     ctas:
@@ -93,13 +93,14 @@ sections:
     direction: reverse
     title: "this is a media component !"
     mediaContent:
-      title: "What is a media component ?"
+      title: "Indeed, what is it?"
       text: |-
-        The Media Object pattern is: image thingy on the left, heading and text on the right.
+        A staple of almost any corporate website, the media component is a construct that uses an image and some text to get a point across. Or as Chris Coyier would say:
+        _"The Media Object pattern is: image thingy on the left, heading and text on the right."_
 
-        That’s what [Nicole Sullivan](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) called it and the [name stuck](https://getbootstrap.com/docs/4.0/layout/media-object/). It’s a pretty simple pattern, but like all things web design, it can be done many ways.
+        Read more about this in the [CSS-Tricks](https://css-tricks.com/) article **[The Media Object, A Bunch of Ways](https://css-tricks.com/media-object-bunch-ways/)**
 
-        In this implementation the image thingy can be
+        In this implementation the "image thingy" can be:
 
         - an image
         - a video
@@ -151,9 +152,11 @@ sections:
     direction: normal
     title: ""
     mediaContent:
-      title: "Another Media component"
+      title: "Media component with an icon"
       text: |-
-        In this example the order of image and text have been reversed, instead of an image we show an icon and a cta is diplayed at the text bottom
+        In this example the order of image and text have been reversed, instead of an image we show an icon and a cta is diplayed at the text bottom.
+
+        Icons are stored in svg code and injected into the Nunjucks templates via it name.
     hasCtas: true
     ctas:
       - label: "Let's go shopping"
@@ -200,26 +203,29 @@ sections:
     mediaContent:
       title: "media component below the fold ?"
       text: |-
-        This media component is located under fold to test progressive image loading
+        This media component is located under the "fold" to test progressive image loading. 
 
-    hasCtas: false
+        The site uses [cloudinary.io](https://cloudinary.com/) to store all images. Cloudinary's on-the-fly image transformations allow for a very effective progressive image with lazy load implementation. In essence a low resolution copy of the image is loaded first and when the image enters the viewport it is updated with an image that is properly sized for the available space.
+
+        Here is a very interesting talk by Jose Perez about Progressive Image Rendering.
+
+    hasCtas: true
     ctas:
-      - label: ""
-        url: ""
-        isVideoTrigger: false
-        isButton: false
-        buttonStyle: ""
+      - label: "Play Video"
         isExternal: false
-    mediaType: Image
+        isButton: false
+        buttonStyle: "primary"
+        isVideoTrigger: true
+    mediaType: Video
     video:
       src: youtube
-      id: ""
-      tn: ""
-      aspectRatio: ""
+      id: "S70xyRYCNdY"
+      tn: "v1636656059/gatsby4mdx/one-tree_nnl9ts.jpg"
+      aspectRatio: "56.25"
     image:
-      src: "v1636656058/gatsby4mdx/trees-fog_dru2h3.jpg"
-      alt: "a tree"
-      aspectRatio: "62.5"
+      src: ""
+      alt: ""
+      aspectRatio: ""
     lottieData:
       src: ""
       control:
@@ -246,9 +252,9 @@ sections:
     direction: normal
     title: ""
     mediaContent:
-      title: "We go further under the fold"
+      title: "Media section with audio"
       text: |-
-        This media component is located under fold to test progressive image loading
+        This media component loads an audio file from cloudinary.io
 
     hasCtas: false
     ctas:
@@ -258,15 +264,15 @@ sections:
         isButton: false
         buttonStyle: ""
         isExternal: false
-    mediaType: Image
+    mediaType: Audio
     video:
       src: youtube
       id: ""
       tn: ""
       aspectRatio: ""
     image:
-      src: "v1636656059/gatsby4mdx/trees-water_fe7obz.jpg"
-      alt: "a tree"
+      src: ""
+      alt: ""
       aspectRatio: "56.25"
     lottieData:
       src: ""
@@ -275,10 +281,10 @@ sections:
         loop: true
     icon: ""
     audio:
-      bgImage: ""
-      aspectRatio: ""
-      ogg: ""
-      mpeg: ""
+      bgImage: "v1636656058/gatsby4mdx/many-tree-trunks_h0eowk.jpg"
+      aspectRatio: "56.25"
+      ogg: "v1639165770/gatsby4mdx/audio/sample-ogg-file_fmjjrl.ogg"
+      mpeg: "v1639165774/gatsby4mdx/audio/sample-mp3-file_hwsxlc.mp3"
 
   - template: page-section-media
     component: SectionMedia
@@ -294,30 +300,30 @@ sections:
     direction: reverse
     title: ""
     mediaContent:
-      title: "We go even further under the fold"
+      title: "Here is an Example of a Lottie animation"
       text: |-
-        This media component is located under fold to test progressive image loading
+        Animated svg in Lottie format. Lottie is an open source animation file format that’s tiny, high quality, interactive, and can be manipulated at runtime. The top 500 apps on the App store now use Lottie to engage users and enhance conversions.
 
-    hasCtas: false
+    hasCtas: true
     ctas:
-      - label: ""
-        url: ""
+      - label: "Read more about lottie"
+        url: "https://lottiefiles.com/lottie"
         isVideoTrigger: false
-        isButton: false
-        buttonStyle: ""
-        isExternal: false
-    mediaType: Image
+        isButton: true
+        buttonStyle: "primary"
+        isExternal: true
+    mediaType: Lottie
     video:
       src: youtube
       id: ""
       tn: ""
       aspectRatio: ""
     image:
-      src: "v1636656058/gatsby4mdx/many-tree-trunks_h0eowk.jpg"
+      src: "v1636656059/gatsby4mdx/trees-water_fe7obz.jpg"
       alt: "a tree"
       aspectRatio: "56.25"
     lottieData:
-      src: ""
+      src: "Example3"
       control:
         autoplay: true
         loop: true

@@ -11,7 +11,7 @@ import MarkdownToHTML from "../../particles/markdown-to-html";
 const SectionIntro = ({ info: { title, subTitle, prose, paddingTop, paddingBottom } }) => (
   <IntroWrapper paddingBottom={paddingBottom} paddingTop={paddingTop}>
     {title && <h2>{titleCase(title)}</h2>}
-    {subTitle && <p>{subTitle}</p>}
+    {subTitle && <p className="subTitle">{subTitle}</p>}
     {prose && <MarkdownToHTML content={prose} />}
   </IntroWrapper>
 );

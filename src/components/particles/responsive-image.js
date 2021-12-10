@@ -28,6 +28,7 @@ const ResponsiveWrapper = styled.div`
     top: 0;
     left: 0;
     bottom: 0;
+    opacity: 0;
     transition: opacity 0.4s ease-in-out;
   }
 
@@ -70,8 +71,6 @@ const ResponsiveImage = ({ src, alt, aspectRatio }) => {
   const siteMetaData = useSiteMetadata();
   const wrapperRef = useRef();
   const imgRef = useRef();
-
-  console.log(aspectRatio);
 
   // monitor window size
   const size = useWindowResize();

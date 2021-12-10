@@ -7,6 +7,7 @@ export const MediaWrapper = styled.div`
   align-items: center;
 
   button {
+    width: 100%;
     border: none;
     background: none;
     cursor: pointer;
@@ -26,6 +27,21 @@ export const MediaWrapper = styled.div`
       bottom: 100px;
       left: 50%;
       margin-left: -165px;
+    }
+  }
+
+  &.animation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f0f0f0;
+
+    svg {
+      max-width: 400px;
+      max-height: 400px;
+      width: 100%;
+      height: auto;
     }
   }
 `;

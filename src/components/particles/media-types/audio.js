@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ResponsiveImage from "../responsive-image";
+import useSiteMetadata from "../../../hooks/useSiteMetadata";
 
 import { MediaWrapper } from "./styles";
 
@@ -7,12 +9,14 @@ import { MediaWrapper } from "./styles";
  * Media section with audio player
  ******************************************************************************** */
 const AudioMedia = ({ audio }) => {
+  const siteMetadata = useSiteMetadata();
+
   return (
     <MediaWrapper className="audio">
-      <img src={audio.bgImage} alt="" />
+      <ResponsiveImage src={audio.bgImage} aspectRatio={audio.aspectRatio} />
       <audio controls>
-        <source src={audio.ogg} type="audio/ogg" />
-        <source src={audio.mpeg} type="audio/mpeg" />
+        <source src={`${siteMetadata.audioPrefix}${audio.ogg}`} type="audio/ogg" />
+        <source src={`${siteMetadata.audioPrefix}${audio.mpeg}`} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
     </MediaWrapper>

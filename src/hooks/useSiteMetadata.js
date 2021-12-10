@@ -24,6 +24,7 @@ const useSiteMetadata = () => {
           }
           imagePrefix
           imageDefault
+          audioPrefix
         }
       }
     }

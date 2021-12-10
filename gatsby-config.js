@@ -21,6 +21,7 @@ module.exports = {
     },
     imagePrefix: "https://res.cloudinary.com/glinkaco/image/upload/",
     imageDefault: "",
+    audioPrefix: "https://res.cloudinary.com/glinkaco/video/upload/",
   },
   plugins: [
     `gatsby-plugin-image`,

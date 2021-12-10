@@ -29,7 +29,7 @@ const LottieMedia = ({ lottieData }) => {
     };
   }, []);
 
-  return <MediaWrapper className="image" ref={AnimationRef} />;
+  return <MediaWrapper className="animation" ref={AnimationRef} />;
 };
 
 LottieMedia.propTypes = {
