@@ -6,7 +6,7 @@ export const Overlay = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 100000;
+  z-index: 1000000;
   background-color: rgba(0, 0, 0, 0.5);
   animation: fade-in 0.5s ease-in-out;
 
