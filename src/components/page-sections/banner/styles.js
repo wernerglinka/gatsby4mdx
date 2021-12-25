@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Banner = styled.div``;
+export const BannerWrapper = styled.div``;
 
 export const BannerContent = styled.div`
   display: flex;

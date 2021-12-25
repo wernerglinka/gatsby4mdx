@@ -7,8 +7,7 @@ pageMetadata:
   image: ""
   canonicalURL: ""
 sections:
-  - template: page-section-intro
-    component: SectionIntro
+  - component: Intro
     disabled: false
     animateSection: false
     inContainer: true
@@ -31,8 +30,7 @@ sections:
         isButton: true
         buttonStyle: "primary"
 
-  - template: page-section-media
-    component: SectionMedia
+  - component: Media
     animateSection: true
     inContainer: false
     hasBackground: false
@@ -43,21 +41,20 @@ sections:
     paddingTop: false
     paddingBottom: false
     direction: reverse
-    title: "this is a media component !"
-    mediaContent:
-      title: "What is a media component ?"
-      text: |-
-        The Media Object pattern is: image thingy on the left, heading and text on the right.
+    title: "What is a media component ?"
+    header: "h2"
+    prose: |-
+      The Media Object pattern is: image thingy on the left, heading and text on the right.
 
-        That’s what [Nicole Sullivan](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) called it and the [name stuck](https://getbootstrap.com/docs/4.0/layout/media-object/). It’s a pretty simple pattern, but like all things web design, it can be done many ways.
+      That’s what [Nicole Sullivan](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) called it and the [name stuck](https://getbootstrap.com/docs/4.0/layout/media-object/). It’s a pretty simple pattern, but like all things web design, it can be done many ways.
 
-        In this implementation the image thingy can be
+      In this implementation the image thingy can be
 
-        - an image
-        - a video
-        - an animated Lottie svg
-        - an icon
-        - an audio player
+      - an image
+      - a video
+      - an animated Lottie svg
+      - an icon
+      - an audio player
 
     hasCtas: false
     ctas:

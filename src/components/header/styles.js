@@ -14,7 +14,9 @@ export const HeaderWrapper = styled.div`
     width: 100%;
     height: ${props => props.theme.header.height};
     padding: ${props => props.theme.header.padding};
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: ${props => (props.isScrolling ? "rgba(255, 255, 255, 0.9)" : "transparent")};
+    box-shadow: ${props => (props.isScrolling ? "0px 4px 10px 0px rgba(51,51,51,0.2)" : "none")};
+    transition: background-color 0.5s ease-in-out;
   }
 `;
 

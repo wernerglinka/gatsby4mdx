@@ -13,7 +13,6 @@ const VideoMedia = ({ video, modalState, setModalState }) => {
     setModalState({ ...modalState, source, videoID, showModal: true });
   }
 
-  console.log(video);
   return (
     <>
       <MediaWrapper className="video">

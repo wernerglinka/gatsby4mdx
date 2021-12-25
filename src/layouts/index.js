@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import theme from "../styles/theme";
 import Head from "../components/head";
 import Header from "../components/header";
+import Footer from "../components/footer";
 import useSiteMetadata from "../hooks/useSiteMetadata";
 
 // apply global css
@@ -56,6 +57,8 @@ const DefaultLayout = ({ children, location }) => {
           <MDXProvider>{children}</MDXProvider>
         </motion.main>
       </AnimatePresence>
+
+      <Footer />
     </ThemeProvider>
   );
 };

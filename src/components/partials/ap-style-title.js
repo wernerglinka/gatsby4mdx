@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import APStyleTitleCase from "ap-style-title-case";
 
 const APTitle = ({ content, level, headerClass }) => {
-  const HeaderTag = `h${level}`;
+  const HeaderTag = `${level}`;
 
   return <HeaderTag className={headerClass}>{APStyleTitleCase(content)}</HeaderTag>;
 };

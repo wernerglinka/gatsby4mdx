@@ -30,7 +30,8 @@ export const MediaWrapper = styled.div`
     }
   }
 
-  &.animation {
+  &.animation,
+  &.icon {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,7 +42,7 @@ export const MediaWrapper = styled.div`
       max-width: 400px;
       max-height: 400px;
       width: 100%;
-      height: auto;
+      height: 100%;
     }
   }
 `;

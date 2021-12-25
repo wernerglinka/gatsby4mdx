@@ -18,22 +18,26 @@ sections:
     backgroundColor: ""
     targetID: ""
     title: Werner's Gatsby4 Sandbox
-    header: "h1"
     subTitle: My personal sandbox site to experiement with Gatsby4.
     prose: This site is build in the style of a company marketing site. The components that I use on this site are bare-bones interpretations of universal information presentation patterns that can be found anywhere.
     hasCtas: true
     ctas:
-      - url: ""
-        label: "Learn More About Gatsby4"
+      - url: "/other-page/"
+        label: Other Page
         isExternal: false
         isButton: true
+        buttonStyle: "primary"
+      - url: ""
+        label: "Play Video"
+        isExternal: false
+        isButton: false
         buttonStyle: "primary"
         isVideoTrigger: true
     mediaType: Video
     video:
       src: youtube
       id: "6Eglvixg4eg"
-      tn: "v1640470129/gatsby4mdx/gatsby-4_zc14nz.png"
+      tn: "v1636656059/gatsby4mdx/one-tree_nnl9ts.jpg"
       aspectRatio: "56.25"
     image:
       src: ""
@@ -61,7 +65,7 @@ sections:
     paddingBottom: true
     backgroundColor: ""
     targetID: ""
-    title: Why Gatsby?
+    title: Why Gatsby4?
     header: "h2"
     subTitle: Because everybody wants it!
     prose: |-
@@ -116,22 +120,30 @@ sections:
     paddingTop: false
     paddingBottom: false
     direction: reverse
-    title: "What about these georgeous background gradients?"
+    title: "Indeed, what is it?"
     header: "h3"
-    subTitle: "Gradient Magic is the largest gallery of CSS Gradients on the web, with new and exciting gradients added all the time"
     prose: |-
-      CSS Gradients are fancy patterns created via CSS, primarily used to add color or patterns to a website. They have many benefits over images, including being easier to work with and much smaller in size.
+      A staple of almost any corporate website, the media component is a construct that uses an image and some text to get a point across. Or as Chris Coyier would say:
+      _"The Media Object pattern is: image thingy on the left, heading and text on the right."_
 
-      As long as you don't re-distribute or re-sell gradients or derived images from gradientmagic.com, you may use them on personal or commercial projects with attribution.
+      Read more about this in the [CSS-Tricks](https://css-tricks.com/) article **[The Media Object, A Bunch of Ways](https://css-tricks.com/media-object-bunch-ways/)**
 
-    hasCtas: true
+      In this implementation the "image thingy" can be:
+
+      - an image
+      - a video
+      - an animated Lottie svg
+      - an icon
+      - an audio player
+
+    hasCtas: false
     ctas:
-      - label: "Visit Gradient Magic"
-        url: "https://www.gradientmagic.com/"
-        isExternal: true
+      - label: ""
+        url: ""
+        isVideoTrigger: false
         isButton: false
-        buttonStyle: "primary"
-        isVideoTrigger: true
+        buttonStyle: ""
+        isExternal: false
     mediaType: Image
     video:
       src: youtube
@@ -139,9 +151,9 @@ sections:
       tn: ""
       aspectRatio: ""
     image:
-      src: "v1639777526/gatsby4mdx/gradient-magic_ohfafp.jpg"
-      alt: "gradient magic logo"
-      aspectRatio: "56.25"
+      src: "v1636656058/gatsby4mdx/trees_ovi9xa.jpg"
+      alt: "a tree"
+      aspectRatio: "62.5"
     lottieData:
       src: ""
       control:
@@ -165,15 +177,16 @@ sections:
     paddingTop: true
     paddingBottom: true
     direction: normal
-    title: "And about these Feather icons"
+    title: "Media component with an icon"
     header: "h3"
-    subTitle: "They are simply beautiful and open source"
     prose: |-
-      You can get them [here](https://feathericons.com/)!
-    hasCtas: false
+      In this example the order of image and text have been reversed, instead of an image we show an icon and a cta is diplayed at the text bottom.
+
+      Icons are stored in svg code and injected into the Nunjucks templates via it name.
+    hasCtas: true
     ctas:
-      - label: ""
-        url: ""
+      - label: "Let's go shopping"
+        url: "https://amazon.com"
         isVideoTrigger: false
         isButton: false
         buttonStyle: ""
@@ -193,7 +206,7 @@ sections:
       control:
         autoplay: true
         loop: true
-    icon: Feather
+    icon: ConserveEnergy
     audio:
       bgImage: ""
       aspectRatio: ""
@@ -211,33 +224,126 @@ sections:
     paddingTop: false
     paddingBottom: false
     direction: reverse
-    title: "Digital Asset Management with Cloudinary"
+    title: "media component below the fold ?"
     header: "h3"
-    subTitle: "Images are easy"
     prose: |-
-      Cloudinary is used to store, transform, optimize, and deliver all site media assets — images and videos with easy-to-use APIs. This service takes the pain of image management and responsive image set creations away. You just tell cloudinary, in the image url, what the image size should be and more. Click here to [get started](https://cloudinary.com/documentation/how_to_integrate_cloudinary).
+      This media component is located under the "fold" to test progressive image loading. 
 
-      Check out the responsive image javascript module to see this in action.
+      The site uses [cloudinary.io](https://cloudinary.com/) to store all images. Cloudinary's on-the-fly image transformations allow for a very effective progressive image with lazy load implementation. In essence a low resolution copy of the image is loaded first and when the image enters the viewport it is updated with an image that is properly sized for the available space.
+
+      Here is a very interesting talk by Jose Perez about Progressive Image Rendering.
+
+    hasCtas: true
+    ctas:
+      - label: "Play Video"
+        isExternal: false
+        isButton: false
+        buttonStyle: "primary"
+        isVideoTrigger: true
+    mediaType: Video
+    video:
+      src: youtube
+      id: "S70xyRYCNdY"
+      tn: "v1636656059/gatsby4mdx/one-tree_nnl9ts.jpg"
+      aspectRatio: "56.25"
+    image:
+      src: ""
+      alt: ""
+      aspectRatio: ""
+    lottieData:
+      src: ""
+      control:
+        autoplay: true
+        loop: true
+    icon: ""
+    audio:
+      bgImage: ""
+      aspectRatio: ""
+      ogg: ""
+      mpeg: ""
+
+  - component: Media
+    animateSection: true
+    inContainer: false
+    hasBackground: false
+    bgColor: ""
+    bgIsDark: false
+    marginTop: true
+    marginBottom: true
+    paddingTop: false
+    paddingBottom: false
+    direction: normal
+    title: "Media section with audio"
+    header: "h3"
+    prose: |-
+      This media component loads an audio file from cloudinary.io
 
     hasCtas: false
     ctas:
       - label: ""
-        isExternal: false
-        isButton: false
-        buttonStyle: "primary"
+        url: ""
         isVideoTrigger: false
-    mediaType: Image
+        isButton: false
+        buttonStyle: ""
+        isExternal: false
+    mediaType: Audio
     video:
       src: youtube
       id: ""
       tn: ""
       aspectRatio: ""
     image:
-      src: "v1639779216/gatsby4mdx/cloudinary-logo_njlkd9.jpg"
-      alt: "cloudinary"
+      src: ""
+      alt: ""
       aspectRatio: "56.25"
     lottieData:
       src: ""
+      control:
+        autoplay: true
+        loop: true
+    icon: ""
+    audio:
+      bgImage: "v1636656058/gatsby4mdx/many-tree-trunks_h0eowk.jpg"
+      aspectRatio: "56.25"
+      ogg: "v1639165770/gatsby4mdx/audio/sample-ogg-file_fmjjrl.ogg"
+      mpeg: "v1639165774/gatsby4mdx/audio/sample-mp3-file_hwsxlc.mp3"
+
+  - component: Media
+    animateSection: true
+    inContainer: false
+    hasBackground: false
+    bgColor: ""
+    bgIsDark: false
+    marginTop: true
+    marginBottom: true
+    paddingTop: false
+    paddingBottom: false
+    direction: reverse
+    title: "Here is an Example of a Lottie animation"
+    header: "h3"
+    prose: |-
+      Animated svg in Lottie format. Lottie is an open source animation file format that’s tiny, high quality, interactive, and can be manipulated at runtime. The top 500 apps on the App store now use Lottie to engage users and enhance conversions.
+
+    hasCtas: true
+    ctas:
+      - label: "Read more about lottie"
+        url: "https://lottiefiles.com/lottie"
+        isVideoTrigger: false
+        isButton: true
+        buttonStyle: "primary"
+        isExternal: true
+    mediaType: Lottie
+    video:
+      src: youtube
+      id: ""
+      tn: ""
+      aspectRatio: ""
+    image:
+      src: "v1636656059/gatsby4mdx/trees-water_fe7obz.jpg"
+      alt: "a tree"
+      aspectRatio: "56.25"
+    lottieData:
+      src: "Example3"
       control:
         autoplay: true
         loop: true

@@ -1,7 +1,7 @@
-import SectionBanner from "./page-sections/banner";
-import SectionIntro from "./page-sections/intro";
-import SectionMedia from "./page-sections/media";
+import Banner from "./page-sections/banner";
+import Intro from "./page-sections/intro";
+import Media from "./page-sections/media";
 
-export { SectionBanner, SectionIntro, SectionMedia };
+export { Banner, Intro, Media };
 
-export default { SectionBanner, SectionIntro, SectionMedia };
+export default { Banner, Intro, Media };

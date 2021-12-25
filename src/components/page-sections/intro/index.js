@@ -1,22 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import titleCase from "ap-style-title-case";
 import { IntroWrapper } from "./styles";
-import MarkdownToHTML from "../../particles/markdown-to-html";
+import Text from "../../partials/text";
 
 /** ***************************************************************************
  *  Section Intro Component
  *  A common set of optional fields for a page section.
  *************************************************************************** */
-const SectionIntro = ({ info: { title, subTitle, prose, paddingTop, paddingBottom } }) => (
-  <IntroWrapper paddingBottom={paddingBottom} paddingTop={paddingTop}>
-    {title && <h2>{titleCase(title)}</h2>}
-    {subTitle && <p className="subTitle">{subTitle}</p>}
-    {prose && <MarkdownToHTML content={prose} />}
-  </IntroWrapper>
-);
+const Intro = ({ info }) => {
+  const { paddingTop, paddingBottom } = info;
+  return (
+    <IntroWrapper paddingBottom={paddingBottom} paddingTop={paddingTop}>
+      <Text info={info} />
+    </IntroWrapper>
+  );
+};
 
-SectionIntro.propTypes = {
+Intro.propTypes = {
   info: PropTypes.shape({
     title: PropTypes.string.isRequired,
     subTitle: PropTypes.string,
@@ -26,7 +26,7 @@ SectionIntro.propTypes = {
   }),
 };
 
-SectionIntro.defaultProps = {
+Intro.defaultProps = {
   info: {
     subTitle: null,
     prose: null,
@@ -35,4 +35,4 @@ SectionIntro.defaultProps = {
   },
 };
 
-export default SectionIntro;
+export default Intro;

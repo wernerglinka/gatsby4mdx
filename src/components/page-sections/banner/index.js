@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import APTitle from "../../particles/ap-style-title";
-import ImageMedia from "../../particles/media-types/image";
-import VideoMedia from "../../particles/media-types/video";
-import LottieMedia from "../../particles/media-types/lottie";
-import IconMedia from "../../particles/media-types/icon";
-import AudioMedia from "../../particles/media-types/audio";
-import CTAs from "../../particles/ctas";
+import APTitle from "../../partials/ap-style-title";
+import MarkdownToHTML from "../../partials/markdown-to-html";
+import ImageMedia from "../../partials/media-types/image";
+import VideoMedia from "../../partials/media-types/video";
+import LottieMedia from "../../partials/media-types/lottie";
+import IconMedia from "../../partials/media-types/icon";
+import AudioMedia from "../../partials/media-types/audio";
+import Text from "../../partials/text";
+import CTAs from "../../partials/ctas";
 
-import { Banner, BannerContent, TextWrapper } from "./styles";
+import { BannerWrapper, BannerContent, TextWrapper } from "./styles";
 
 /** ***************************************************************************
  *  Page banner with key points Component
  *************************************************************************** */
-const SectionBanner = ({ info }) => {
-  const { title, subTitle, hasCtas, ctas, mediaType, image, video, lottieData, icon, audio } = info;
+const Banner = ({ info }) => {
+  const { title, subTitle, prose, hasCtas, ctas, mediaType, image, video, lottieData, icon, audio } = info;
 
   const [modalState, setModalState] = useState({
     source: null,
@@ -23,11 +25,10 @@ const SectionBanner = ({ info }) => {
   });
 
   return (
-    <Banner>
+    <BannerWrapper>
       <BannerContent>
         <TextWrapper>
-          {title && <APTitle content={title} level="1" />}
-          {subTitle && <p>{subTitle}</p>}
+          <Text info={info} />
           {hasCtas && <CTAs ctas={ctas} video={video} modalState={modalState} setModalState={setModalState} />}
         </TextWrapper>
         {mediaType === "Video" && <VideoMedia video={video} modalState={modalState} setModalState={setModalState} />}
@@ -36,14 +37,15 @@ const SectionBanner = ({ info }) => {
         {mediaType === "Icon" && <IconMedia icon={icon} />}
         {mediaType === "Audio" && <AudioMedia audio={audio} />}
       </BannerContent>
-    </Banner>
+    </BannerWrapper>
   );
 };
 
-SectionBanner.propTypes = {
+Banner.propTypes = {
   info: PropTypes.shape({
     title: PropTypes.string.isRequired,
     subTitle: PropTypes.string,
+    prose: PropTypes.string,
     hasCtas: PropTypes.bool,
     ctas: PropTypes.array,
     mediaType: PropTypes.string,
@@ -55,9 +57,10 @@ SectionBanner.propTypes = {
   }),
 };
 
-SectionBanner.defaultProps = {
+Banner.defaultProps = {
   info: {
     subTitle: null,
+    prose: null,
     hasCtas: false,
     ctas: null,
     mediaType: null,
@@ -69,4 +72,4 @@ SectionBanner.defaultProps = {
   },
 };
 
-export default SectionBanner;
+export default Banner;

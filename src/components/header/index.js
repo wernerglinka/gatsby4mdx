@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+/* global document */
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { AnimatePresence } from "framer-motion";
 import Logo from "../../../content/media/icons/logo";
 import Hamburger from "./hamburger";
-import MenuContent from "../particles/menu-content";
+import MenuContent from "../partials/menu-content";
+import useInView from "../../hooks/useInView";
 
 import { HeaderWrapper, Brand, Inner, MenuBackground, Menu } from "./styles";
 
@@ -38,6 +40,10 @@ const variants = {
 const Header = ({ location }) => {
   const [menuActive, setMenu] = useState(false);
 
+  const headerRef = useRef();
+  // monitor if page is scrolling
+  const isScrolling = !useInView(headerRef);
+
   const isHome = location.pathname === "/";
 
   const toggleMenu = () => {
@@ -48,8 +54,17 @@ const Header = ({ location }) => {
     setMenu(false);
   };
 
+  // change header background color when page scrolls
+  useEffect(() => {
+    if (isScrolling) {
+      document.body.classList.add("is-scrolling");
+    } else {
+      document.body.classList.remove("is-scrolling");
+    }
+  }, [isScrolling]);
+
   return (
-    <HeaderWrapper>
+    <HeaderWrapper ref={headerRef} isScrolling={isScrolling}>
       <header>
         <Inner>
           <MenuBackground className={menuActive ? "isActive" : null} />
