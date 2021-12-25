@@ -21,6 +21,7 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const Inner = styled.div`
+  position: relative;
   max-width: ${props => props.theme.content.maxWidth};
   width: 100%;
   margin: 0 auto;
@@ -34,7 +35,7 @@ export const Inner = styled.div`
 
 export const Brand = styled.div`
   position: relative;
-  z-index: 10000;
+  z-index: 3000;
   width: 50px;
   height: 50px;
 
@@ -44,31 +45,22 @@ export const Brand = styled.div`
   }
 `;
 
-export const MenuBackground = styled.div`
+export const Menu = styled.nav`
   position: fixed;
+  z-index: 2000;
   top: 0;
-  left: 0;
-  transform: rotate(-90deg);
-  transform-origin: top left;
-  transition: all 1s ease-in-out;
-  width: 200%;
-  height: 200%;
-  background-color: rgba(50, 50, 100, 0.95);
-
-  &.isActive {
-    transform: rotate(0deg);
-  }
-`;
-
-export const Menu = styled(motion.nav)`
-  position: fixed;
-  top: ${props => props.theme.header.height};
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 20% 10% 10%;
+  opacity: ${props => (props.menuActive ? "1" : "0")};
+  pointer-events: ${props => (props.menuActive ? "auto" : "none")};
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   ul {
+    max-width: 500px;
     list-style: none;
 
     li {
@@ -89,10 +81,16 @@ export const Menu = styled(motion.nav)`
       display: block;
       font-size: 28px;
       color: #ccc;
-      font-weight: bold;
+      font-weight: 500;
 
       &:hover {
         color: #fff;
+      }
+
+      &.active {
+        color: #666;
+        pointer-events: none;
+        cursor: default;
       }
     }
 

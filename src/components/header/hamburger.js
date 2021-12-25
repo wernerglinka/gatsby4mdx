@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 const HamburgerButton = styled.button`
   position: relative;
-  z-index: 10000;
+  z-index: 3000;
   width: ${props => props.theme.header.hamburger};
   height: ${props => props.theme.header.hamburger};
   cursor: pointer;

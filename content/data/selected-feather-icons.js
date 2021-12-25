@@ -1,5 +1,12 @@
-import { FiDatabase as Database, FiFeather as Feather, FiDribbble as Dribble } from "react-icons/fi";
+import {
+  FiDatabase as Database,
+  FiFeather as Feather,
+  FiDribbble as Dribble,
+  FiHome as House,
+  FiDownloadCloud as Download,
+  FiImage as Image,
+} from "react-icons/fi";
 
-export { Database, Dribble, Feather };
+export { Database, Download, Dribble, Feather, House, Image };
 
-export default { Database, Dribble, Feather };
+export default { Database, Download, Dribble, Feather, House, Image };

@@ -9,6 +9,7 @@ import StopLittering from "./stop-littering";
 import Feather from "./feather";
 import Download from "./download";
 import Database from "./database";
+import House from "./house";
 import ToTop from "./to-top";
 
 export {
@@ -18,6 +19,7 @@ export {
   Download,
   EcologicalPlanet,
   Feather,
+  House,
   MissingIcon,
   QuoteEnd,
   QuoteStart,
@@ -33,6 +35,7 @@ export default {
   Download,
   EcologicalPlanet,
   Feather,
+  House,
   MissingIcon,
   QuoteEnd,
   QuoteStart,

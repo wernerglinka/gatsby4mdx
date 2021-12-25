@@ -142,3 +142,34 @@ h4 {
   opacity: 1;
   pointer-events: auto;
 }
+
+header:before,
+header:after {
+  content: "";
+  position: fixed;
+  left: 0;
+  transition: all 1s ease-in-out;
+  width: 200%;
+  height: 200%;
+  background-color: rgba(50, 50, 100, 0.8);
+}
+
+header:before {
+  top: 0;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+}
+
+.menu-active header:before {
+  transform: rotate(0deg);
+}
+
+header:after {
+  bottom: 0;
+  transform: rotate(90deg);
+  transform-origin: bottom left;
+}
+
+.menu-active header:after {
+  transform: rotate(0deg);
+}

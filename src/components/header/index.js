@@ -63,12 +63,19 @@ const Header = ({ location }) => {
     }
   }, [isScrolling]);
 
+  // menu overlay
+  useEffect(() => {
+    if (menuActive) {
+      document.body.classList.add("menu-active");
+    } else {
+      document.body.classList.remove("menu-active");
+    }
+  }, [menuActive]);
+
   return (
     <HeaderWrapper ref={headerRef} isScrolling={isScrolling}>
       <header>
         <Inner>
-          <MenuBackground className={menuActive ? "isActive" : null} />
-
           <Brand>
             {isHome ? (
               <Logo />
@@ -79,13 +86,9 @@ const Header = ({ location }) => {
             )}
           </Brand>
 
-          <AnimatePresence>
-            {menuActive && (
-              <Menu variants={variants} initial="initial" animate="enter" exit="exit">
-                <MenuContent closeMenu={closeMenu} />
-              </Menu>
-            )}
-          </AnimatePresence>
+          <Menu menuActive={menuActive}>
+            <MenuContent closeMenu={closeMenu} />
+          </Menu>
 
           <Hamburger activate={toggleMenu} isActive={menuActive} />
         </Inner>

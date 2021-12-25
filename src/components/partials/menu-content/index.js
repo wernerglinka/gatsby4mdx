@@ -20,7 +20,7 @@ const MenuContent = ({ closeMenu }) => {
                   {navItem.label}
                 </a>
               ) : (
-                <Link to={navItem.url} onClick={closeMenu}>
+                <Link to={navItem.url} activeClassName="active" onClick={closeMenu}>
                   {navItem.label}
                 </Link>
               )}
